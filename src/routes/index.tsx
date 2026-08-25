@@ -441,9 +441,19 @@ function HomePage() {
       {/* ---------------- 8. FOOTER ---------------- */}
       <Box component="footer" sx={{ py: 4, borderTop: "1px solid rgba(255,255,255,0.07)" }}>
         <Container maxWidth="lg">
-          <Typography variant="body2" color="text.secondary" align="center">
-            © {new Date().getFullYear()} {business.name} — {business.tagline}
-          </Typography>
+          <Stack spacing={2} sx={{ alignItems: "center" }}>
+            {/* Footer logo */}
+            <Box
+              component="img"
+              src={logoUrl}
+              alt={`${business.name} logo`}
+              loading="lazy"
+              sx={{ width: 120, height: 120, objectFit: "contain" }}
+            />
+            <Typography variant="body2" color="text.secondary" align="center">
+              © {new Date().getFullYear()} {business.name} — {business.tagline}
+            </Typography>
+          </Stack>
         </Container>
       </Box>
     </Box>
