@@ -164,7 +164,7 @@ function HomePage() {
         position="sticky"
         color="transparent"
         elevation={0}
-        sx={{ backdropFilter: "blur(10px)", bgcolor: "rgba(11,18,32,0.85)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+        sx={{ backdropFilter: "blur(10px)", bgcolor: "rgba(7,9,10,0.88)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ gap: 2 }}>
@@ -255,7 +255,7 @@ function HomePage() {
                 width={1600}
                 height={900}
                 alt="Mechanic servicing a hybrid car engine at Eagles Hybrid Solutions in Masvingo, Zimbabwe"
-                sx={{ width: "100%", height: "auto", borderRadius: 3, border: "1px solid rgba(245,179,1,0.25)" }}
+                sx={{ width: "100%", height: "auto", borderRadius: 3, border: "1px solid rgba(111,199,43,0.28)" }}
               />
             </Grid>
           </Grid>
