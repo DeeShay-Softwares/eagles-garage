@@ -168,13 +168,22 @@ function HomePage() {
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ gap: 2 }}>
-            <Typography variant="h6" sx={{ flexGrow: 1, lineHeight: 1.1 }}>
-              EAGLES
-              <Box component="span" sx={{ color: "primary.main" }}>
-                {" "}
-                HYBRID
-              </Box>
-            </Typography>
+            {/* Logo + wordmark (logo file: src/assets/eagles-logo.jpg.asset.json) */}
+            <Stack direction="row" spacing={1.5} sx={{ flexGrow: 1, alignItems: "center" }}>
+              <Box
+                component="img"
+                src={logoUrl}
+                alt={`${business.name} logo`}
+                sx={{ height: 44, width: 44, borderRadius: "50%", objectFit: "cover" }}
+              />
+              <Typography variant="h6" sx={{ lineHeight: 1.1 }}>
+                EAGLES
+                <Box component="span" sx={{ color: "primary.main" }}>
+                  {" "}
+                  HYBRID
+                </Box>
+              </Typography>
+            </Stack>
 
             {/* Anchor links — they scroll down this same page */}
             <Stack direction="row" spacing={3} sx={{ display: { xs: "none", md: "flex" } }}>
