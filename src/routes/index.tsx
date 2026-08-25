@@ -45,7 +45,11 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 import heroImage from "../assets/hero-garage.jpg";
+// Company logo (served from Lovable CDN — see src/assets/eagles-logo.jpg.asset.json)
+import logoAsset from "../assets/eagles-logo.jpg.asset.json";
 import { business, services, testimonials } from "../data/site";
+
+const logoUrl = logoAsset.url;
 
 /* ----------------------------------------------------------------
  * SEO
@@ -160,17 +164,26 @@ function HomePage() {
         position="sticky"
         color="transparent"
         elevation={0}
-        sx={{ backdropFilter: "blur(10px)", bgcolor: "rgba(11,18,32,0.85)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+        sx={{ backdropFilter: "blur(10px)", bgcolor: "rgba(7,9,10,0.88)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ gap: 2 }}>
-            <Typography variant="h6" sx={{ flexGrow: 1, lineHeight: 1.1 }}>
-              EAGLES
-              <Box component="span" sx={{ color: "primary.main" }}>
-                {" "}
-                HYBRID
-              </Box>
-            </Typography>
+            {/* Logo + wordmark (logo file: src/assets/eagles-logo.jpg.asset.json) */}
+            <Stack direction="row" spacing={1.5} sx={{ flexGrow: 1, alignItems: "center" }}>
+              <Box
+                component="img"
+                src={logoUrl}
+                alt={`${business.name} logo`}
+                sx={{ height: 44, width: 44, borderRadius: "50%", objectFit: "cover" }}
+              />
+              <Typography variant="h6" sx={{ lineHeight: 1.1 }}>
+                EAGLES
+                <Box component="span" sx={{ color: "primary.main" }}>
+                  {" "}
+                  HYBRID
+                </Box>
+              </Typography>
+            </Stack>
 
             {/* Anchor links — they scroll down this same page */}
             <Stack direction="row" spacing={3} sx={{ display: { xs: "none", md: "flex" } }}>
@@ -242,7 +255,7 @@ function HomePage() {
                 width={1600}
                 height={900}
                 alt="Mechanic servicing a hybrid car engine at Eagles Hybrid Solutions in Masvingo, Zimbabwe"
-                sx={{ width: "100%", height: "auto", borderRadius: 3, border: "1px solid rgba(245,179,1,0.25)" }}
+                sx={{ width: "100%", height: "auto", borderRadius: 3, border: "1px solid rgba(111,199,43,0.28)" }}
               />
             </Grid>
           </Grid>
@@ -428,9 +441,19 @@ function HomePage() {
       {/* ---------------- 8. FOOTER ---------------- */}
       <Box component="footer" sx={{ py: 4, borderTop: "1px solid rgba(255,255,255,0.07)" }}>
         <Container maxWidth="lg">
-          <Typography variant="body2" color="text.secondary" align="center">
-            © {new Date().getFullYear()} {business.name} — {business.tagline}
-          </Typography>
+          <Stack spacing={2} sx={{ alignItems: "center" }}>
+            {/* Footer logo */}
+            <Box
+              component="img"
+              src={logoUrl}
+              alt={`${business.name} logo`}
+              loading="lazy"
+              sx={{ width: 120, height: 120, objectFit: "contain" }}
+            />
+            <Typography variant="body2" color="text.secondary" align="center">
+              © {new Date().getFullYear()} {business.name} — {business.tagline}
+            </Typography>
+          </Stack>
         </Container>
       </Box>
     </Box>

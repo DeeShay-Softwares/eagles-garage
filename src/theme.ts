@@ -9,12 +9,13 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     mode: "dark",
-    // Deep "eagle" navy background
-    background: { default: "#0B1220", paper: "#131C2E" },
-    // Gold accent = buttons, links, highlights
-    primary: { main: "#F5B301", contrastText: "#0B1220" },
-    secondary: { main: "#3D8BFD" },
-    text: { primary: "#F2F5F9", secondary: "#A6B2C4" },
+    // Near-black, matching the logo backdrop
+    background: { default: "#07090A", paper: "#11151A" },
+    // Logo green = buttons, links, highlights
+    primary: { main: "#6FC72B", contrastText: "#07090A" },
+    // Chrome / silver from the eagle + lettering
+    secondary: { main: "#C9D1D9" },
+    text: { primary: "#F1F4F7", secondary: "#9AA6B2" },
   },
   typography: {
     fontFamily: '"Barlow", system-ui, sans-serif',
@@ -34,7 +35,7 @@ const theme = createTheme({
     },
     MuiCard: {
       styleOverrides: {
-        root: { border: "1px solid rgba(245,179,1,0.15)", height: "100%" },
+        root: { border: "1px solid rgba(111,199,43,0.18)", height: "100%" },
       },
     },
   },
