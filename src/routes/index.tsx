@@ -45,7 +45,11 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 import heroImage from "../assets/hero-garage.jpg";
+// Company logo (served from Lovable CDN — see src/assets/eagles-logo.jpg.asset.json)
+import logoAsset from "../assets/eagles-logo.jpg.asset.json";
 import { business, services, testimonials } from "../data/site";
+
+const logoUrl = logoAsset.url;
 
 /* ----------------------------------------------------------------
  * SEO
