@@ -196,7 +196,7 @@ function HomePage() {
       {/* ---------------- 2. HERO ---------------- */}
       <Box component="header" sx={{ py: { xs: 6, md: 10 } }}>
         <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
+          <Grid container spacing={6} sx={{ alignItems: "center" }}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Chip
                 label="Masvingo, Zimbabwe"
@@ -327,7 +327,7 @@ function HomePage() {
           packs and cells, inverters, brake components, filters, oils), which brands are
           stocked, warranty terms and how long orders take to arrive.
         </Typography>
-        <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 3 }}>
+        <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap", mb: 3 }}>
           {["Hybrid batteries", "Inverters", "Brake parts", "Filters & oils", "TODO: add more"].map(
             (p) => (
               <Chip key={p} label={p} variant="outlined" />
