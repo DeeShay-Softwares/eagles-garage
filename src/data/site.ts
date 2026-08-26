@@ -108,7 +108,7 @@ export const partsText = [
   },
 ];
 
-
+/** Customer reviews. TODO: swap these placeholders for real testimonials. */
 export const testimonials = [
   {
     name: "TODO: Customer name",
