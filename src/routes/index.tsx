@@ -45,11 +45,26 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 import heroImage from "../assets/hero-garage.jpg";
+// Parts department photos — swap these files to change the pictures
+import partBattery from "../assets/part-battery.jpg";
+import partInverter from "../assets/part-inverter.jpg";
+import partBrakes from "../assets/part-brakes.jpg";
+import partOils from "../assets/part-oils.jpg";
 // Company logo (served from Lovable CDN — see src/assets/eagles-logo.jpg.asset.json)
 import logoAsset from "../assets/eagles-logo.jpg.asset.json";
-import { business, services, testimonials } from "../data/site";
+import { business, services, testimonials, partsText } from "../data/site";
 
 const logoUrl = logoAsset.url;
+
+/** Parts cards: text comes from src/data/site.ts, images from the imports above. */
+const partImages: Record<string, string> = {
+  battery: partBattery,
+  inverter: partInverter,
+  brakes: partBrakes,
+  oils: partOils,
+};
+const parts = partsText.map((p) => ({ ...p, image: partImages[p.image] }));
+
 
 /* ----------------------------------------------------------------
  * SEO
@@ -325,9 +340,9 @@ function HomePage() {
         </Grid>
       </Section>
 
-      {/* ---------------- 5. PARTS (placeholder section) ----------------
-          TODO: the client will supply the real parts list / prices / photos.
-          When that arrives, replace the text below with a Grid of part cards. */}
+      {/* ---------------- 5. PARTS ----------------
+          Each card = one part category. To edit: change the `parts` array in
+          src/data/site.ts (title, blurb) and swap the image import above. */}
       <Section id="parts" alt>
         <Typography variant="overline" color="primary">
           Spares & parts
@@ -335,22 +350,78 @@ function HomePage() {
         <Typography variant="h2" sx={{ fontSize: { xs: 30, md: 40 }, mb: 2 }}>
           Parts department
         </Typography>
-        <Typography color="text.secondary" sx={{ maxWidth: 720, mb: 3 }}>
-          TODO — PLACEHOLDER TEXT: describe the parts the workshop supplies (hybrid battery
-          packs and cells, inverters, brake components, filters, oils), which brands are
-          stocked, warranty terms and how long orders take to arrive.
+        <Typography color="text.secondary" sx={{ maxWidth: 720, mb: 5 }}>
+          TODO — PLACEHOLDER TEXT: describe the parts the workshop supplies, which brands
+          are stocked, warranty terms and how long orders take to arrive.
         </Typography>
-        <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap", mb: 3 }}>
-          {["Hybrid batteries", "Inverters", "Brake parts", "Filters & oils", "TODO: add more"].map(
-            (p) => (
-              <Chip key={p} label={p} variant="outlined" />
-            ),
-          )}
+
+        <Grid container spacing={3}>
+          {parts.map((p) => (
+            <Grid key={p.title} size={{ xs: 12, sm: 6, md: 3 }}>
+              <Card
+                sx={{
+                  bgcolor: "background.default",
+                  height: "100%",
+                  overflow: "hidden",
+                  border: "1px solid rgba(255,255,255,0.06)",
+                  transition: "transform .25s ease, border-color .25s ease",
+                  "&:hover": {
+                    transform: "translateY(-6px)",
+                    borderColor: "primary.main",
+                  },
+                  "&:hover img": { transform: "scale(1.06)" },
+                }}
+              >
+                {/* Part photo */}
+                <Box sx={{ position: "relative", overflow: "hidden" }}>
+                  <Box
+                    component="img"
+                    src={p.image}
+                    alt={p.alt}
+                    loading="lazy"
+                    width={800}
+                    height={600}
+                    sx={{
+                      display: "block",
+                      width: "100%",
+                      height: 180,
+                      objectFit: "cover",
+                      transition: "transform .35s ease",
+                    }}
+                  />
+                  {/* dark fade so the title always reads well */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to top, rgba(7,9,10,0.85) 0%, rgba(7,9,10,0) 60%)",
+                    }}
+                  />
+                </Box>
+                <CardContent>
+                  <Typography variant="h6" sx={{ mb: 1 }}>
+                    {p.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {p.blurb}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mt: 5 }}>
+          <Button variant="contained" href={waHref} target="_blank" rel="noopener" startIcon={<WhatsAppIcon />}>
+            Ask about a part
+          </Button>
+          <Button variant="outlined" href={telHref} startIcon={<PhoneIcon />}>
+            Call the parts desk
+          </Button>
         </Stack>
-        <Button variant="contained" href={waHref} target="_blank" rel="noopener" startIcon={<WhatsAppIcon />}>
-          Ask about a part
-        </Button>
       </Section>
+
 
       {/* ---------------- 6. TESTIMONIALS (placeholders) ---------------- */}
       <Section id="reviews">

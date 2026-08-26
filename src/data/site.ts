@@ -74,6 +74,40 @@ export const services = [
   },
 ];
 
+/**
+ * PARTS DEPARTMENT CARDS
+ * `image` must be one of: battery | inverter | brakes | oils
+ * (those map to the picture files imported in src/routes/index.tsx)
+ */
+export const partsText = [
+  {
+    image: "battery",
+    title: "Hybrid batteries",
+    blurb:
+      "TODO: battery packs and individual cells — list brands, warranty and price range here.",
+    alt: "Hybrid battery pack for sale at Eagles Hybrid Solutions in Masvingo",
+  },
+  {
+    image: "inverter",
+    title: "Inverters & electrics",
+    blurb:
+      "TODO: inverters, converters, starters and alternators — add availability details.",
+    alt: "Hybrid inverter and auto electrical parts on a workshop bench",
+  },
+  {
+    image: "brakes",
+    title: "Brakes & suspension",
+    blurb: "TODO: discs, pads, shocks and bushes — add the brands you stock.",
+    alt: "New brake discs and brake pads stocked for sale",
+  },
+  {
+    image: "oils",
+    title: "Filters & oils",
+    blurb: "TODO: engine oils, oil/air/fuel filters and plugs — add grades and prices.",
+    alt: "Engine oil bottles and oil filters stocked in the parts department",
+  },
+];
+
 /** Customer reviews. TODO: swap these placeholders for real testimonials. */
 export const testimonials = [
   {
